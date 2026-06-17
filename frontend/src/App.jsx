@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 // ── FILTER CATALOGUE ──────────────────────────────────────────────────────────
 const FILTER_CATEGORIES = [
@@ -128,7 +129,7 @@ export default function App() {
     formData.append("intensity", intensity);
 
     try {
-      const res = await fetch("http://localhost:5000/apply-filter", {
+      const res = await fetch(`${API_URL}/apply-filter`, {
         method: "POST",
         body: formData,
       });
